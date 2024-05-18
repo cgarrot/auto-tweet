@@ -52,8 +52,9 @@ export class WorkflowService {
         simpleBubble(page),
       );
       const mediaId = await this.twitterService.uploadMedia(imageBuffer);
+      const text = [index + 1, story.text.length].join('/');
       mediaIds.push({
-        text: [index + 1, story.text.length].join('/'),
+        text: index === 0 ? `${story.title}  ${text}` : text,
         mediaId,
       });
       index++;
@@ -181,6 +182,7 @@ export class WorkflowService {
   }
 
   async generateStory(): Promise<StoryResult> {
+    const numberSlide = pickRandomNumberSlide();
     return (await this.googleService.generate<StoryResult>(
       `New story with this context ${await this.generateStoryContext()}`,
       [
@@ -197,7 +199,8 @@ export class WorkflowService {
           parts: [
             {
               text: instructions(
-                arrayNumberSlide(pickRandomNumberSlide()).join(','),
+                arrayNumberSlide(numberSlide).join(','),
+                numberSlide,
               ),
             },
           ],

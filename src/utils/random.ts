@@ -136,7 +136,7 @@ export function pickRandomSituationType(): SituationType {
   );
 }
 
-const probabilitiesStoryType = [10, 60, 10, 5, 1, 50, 19];
+const probabilitiesStoryType = [10, 35, 10, 5, 1, 30, 9];
 
 export function pickRandomStoryType(): StoryType {
   return pickWeightedRandom(Array.from(storyTypes), probabilitiesStoryType);
@@ -152,7 +152,7 @@ const numberSlides = [
   [1, 3],
   [4, 6],
   [7, 9],
-  [10, 18],
+  [10, 16],
 ];
 const probabilitiesNumberSlide = [20, 30, 30, 20];
 
