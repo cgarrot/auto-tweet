@@ -5,9 +5,10 @@ import { ImageModule } from '../image';
 import { TwitterModule } from '../twitter';
 import { GoogleModule } from '../google';
 import { TasksService } from './task.service';
+import { OpenaiModule } from '../openai';
 
 @Module({
-  imports: [ImageModule, TwitterModule, GoogleModule],
+  imports: [ImageModule, TwitterModule, GoogleModule, OpenaiModule],
   controllers: [WorkflowController],
   providers: [WorkflowService, TasksService],
   exports: [TasksService],

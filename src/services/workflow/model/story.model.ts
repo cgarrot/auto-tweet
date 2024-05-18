@@ -1,6 +1,6 @@
 import { Model } from 'src/utils/model';
 
-export class Story extends Model<Story> {
+export class StoryResult extends Model<StoryResult> {
   title: string;
   text: string[];
 }
