@@ -11,7 +11,7 @@ export class TasksService {
     this.workflowService = workflowService;
   }
 
-  @Cron('0 */30 12-17 * * *')
+  @Cron('0 */30 20-22 * * *')
   handleCron() {
     this.logger.debug('Creating story...');
     this.workflowService.createWorkflow();
