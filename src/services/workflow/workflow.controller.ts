@@ -5,8 +5,8 @@ import { WorkflowService } from './workflow.service';
 export class WorkflowController {
   constructor(private readonly workflowService: WorkflowService) {}
 
-  @Post()
-  async startWorkflow() {
-    return await this.workflowService.createWorkflow();
-  }
+  // @Post()
+  // async startWorkflow() {
+  //   return await this.workflowService.createWorkflow();
+  // }
 }
