@@ -11,10 +11,14 @@ export class TasksService {
     this.workflowService = workflowService;
   }
 
-  @Cron('0 */30 20-22 * * *')
+  @Cron('0 */30 20-21 * * *')
   handleCron() {
-    this.logger.debug('Creating story...');
-    this.workflowService.createWorkflow();
-    this.logger.debug('Story created!');
+    try {
+      this.logger.debug('Creating story...');
+      this.workflowService.createWorkflow();
+      this.logger.debug('Story created!');
+    } catch (error) {
+      this.logger.error('Error creating story', error);
+    }
   }
 }
